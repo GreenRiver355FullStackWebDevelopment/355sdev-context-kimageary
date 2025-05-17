@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useRestaurants } from "../context/RestaurantContext";
 
 function AddRestaurant() {
+
+  const updateRestaurants = useRestaurants();
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -17,6 +21,7 @@ function AddRestaurant() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    
     updateRestaurants(formData);
   };
 
